@@ -1,4 +1,4 @@
-from threads import RepeatTimer, thread_with_exception
+from threads import thread_with_exception
 import nmap
 import os
 from PyP100 import PyP100, PyP110

@@ -67,7 +67,6 @@ class thread_with_exception(threading.Thread):
                 print("Something is wrong. Spinning up the backup.")
                 self.backup_function(*self.backup_args)
 
-
     def get_id(self):
 
         # returns id of the respective thread

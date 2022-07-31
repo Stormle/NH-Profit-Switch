@@ -1,8 +1,3 @@
-import requests
-import math
-import time
-import datetime
-from PyP100 import PyP100, PyP110
 import argparse
 import sys
 import asyncio
@@ -30,13 +25,9 @@ async def init():
     profit_tracker = Tracker(pc_power_use_in_watts, electricity_cost_per_kw, hashrates)
     status_checker = RepeatTimer(status_check_interval_in_minutes * 60, p100_1.refreshPlugStatus, {})
     status_checker.start()
-    #p110_1_timer = RepeatTimer(task_repeat_time_in_minutes * 60, reoccurring_task, [p100_1, profit_tracker])
-    #p110_1_timer.start()
+    p110_1_timer = RepeatTimer(task_repeat_time_in_minutes * 60, reoccurring_task, [p100_1, profit_tracker])
+    p110_1_timer.start()
 
-
-    # plugTest()
-    # timer = RepeatTimer(repeatIntervalInMinutes * 60, recurringTask)
-    # timer.start()
 def reoccurring_task(plug, profit_tracker):
     profit_tracker.refresh()
     profit = profit_tracker.get_profitability()
