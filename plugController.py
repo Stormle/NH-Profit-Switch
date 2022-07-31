@@ -73,7 +73,7 @@ class MinerPlug:
         for i in range(1, self.number_of_retries + 1):
             try:
                 fetched = self.plug.getDeviceInfo()
-                print("Fetched status successfully")
+                print("Device status refreshed successfully")
                 self.plug_status = fetched['result']['device_on']
                 if self.plug_status != self.plug_desired_status:
                     if self.plug_desired_status:
