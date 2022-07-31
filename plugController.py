@@ -117,7 +117,6 @@ class MinerPlug:
             self.plug_status = True
             return "success"
         except (Exception,) as e:
-            print("turnon failed")
             return False
 
 
@@ -127,7 +126,6 @@ class MinerPlug:
             self.plug_status = False
             return "success"
         except (Exception,) as e:
-            print("turnoff failed")
             return False
 
 

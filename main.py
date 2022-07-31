@@ -33,10 +33,11 @@ def reoccurring_task(plug, profit_tracker):
     profit = profit_tracker.get_profitability()
     print("plug status: " + str(plug.plug_status))
     if profit >= 0 and not plug.plug_status:
-        plug.turnOn()
+        plug.plug_desired_status = True
+        plug.refreshPlugStatus()
     if profit < 0 and plug.plug_status:
-        plug.turnOff()
-
+        plug.plug_desired_status = False
+        plug.refreshPlugStatus()
 args = ""
 if __name__ == '__main__':
     parser = argparse.ArgumentParser(description='NH-Profit-Switch')
